@@ -128,6 +128,70 @@ También puedes consultar los endpoints directamente desde tu navegador:
 
 <img width="1905" height="142" alt="Captura de pantalla 2025-10-23 103838" src="https://github.com/user-attachments/assets/6eb436f4-26af-4879-8c5e-8fa9585864fe" />
 
+Ahora que ya sabes como funciona THUNDER CLIENT, vamos con los siguientes de una forma mas sencilla.
+
+##  GESTIÓN DE CUENTAS
+
+### Crear Cuenta de Ahorros (Savings)
+- **Método:** `POST`  
+- **URL:** [http://localhost:8080/api/bank/customers/{id_cliente}/accounts](http://localhost:8080/api/bank/customers/{id_cliente}/accounts)  
+<img width="1223" height="506" alt="Captura de pantalla 2025-10-23 115106" src="https://github.com/user-attachments/assets/8ee254c1-8749-4605-a3e2-8aff4fe01f88" />
+
+
+### Crear Cuenta Corriente (Checking)
+- **Método:** `POST`  
+- **URL:** [http://localhost:8080/api/bank/customers/{id_cliente}/accounts](http://localhost:8080/api/bank/customers/{id_cliente}/accounts)  
+<img width="1198" height="452" alt="Captura de pantalla 2025-10-23 115412" src="https://github.com/user-attachments/assets/b4b8fd96-7e09-41ea-abfd-fb7138245652" />
+
+### Buscar Cuenta por ID
+- **Método:** `GET`  
+- **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}](http://localhost:8080/api/bank/accounts/{id_cuenta}) 
+- **Ejemplo:** `ACC001`  
+
+### Listar Cuentas de un Cliente
+- **Método:** `GET`  
+- **URL:** [http://localhost:8080/api/bank/customers/{id_cliente}/accounts](http://localhost:8080/api/bank/customers/{id_cliente}/accounts)  
+- **Ejemplo:** `C001`
+- el cliente no tiene que ser necesariamente 'C001', lo puedes identificar como quieras
+
+---
+
+##  TRANSACCIONES
+
+### Realizar Depósito
+- **Método:** `POST`  
+- **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}/deposit?amount={monto}](http://localhost:8080/api/bank/accounts/{id_cuenta}/deposit?amount={monto})  
+- **Query Params:**  
+  - `amount`: monto a depositar  
+<img width="1220" height="327" alt="Captura de pantalla 2025-10-23 120316" src="https://github.com/user-attachments/assets/75e798a8-6734-4e62-ae34-d249a7233360" />
+Aqui el query se usa para pasar parametros y valores, en este caso el parametro es monto y el valor q es 1000, una vez ingreses estos datos la URL se actuliza sola
+
+
+### Realizar Retiro
+- **Método:** `POST`  
+- **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}/withdraw?amount={monto}](http://localhost:8080/api/bank/accounts/{id_cuenta}/withdraw?amount={monto})  
+- **Query Params:**  
+  - `amount`: monto a retirar
+    Aqui pasa lo mismo que deposito solo que ahora retira, pero se usa es query
+
+### Realizar Transferencia
+- **Método:** `POST`  
+- **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}/transfer](http://localhost:8080/api/bank/accounts/{id_cuenta}/transfer)  
+<img width="715" height="328" alt="Captura de pantalla 2025-10-23 121339" src="https://github.com/user-attachments/assets/15807ac6-9f5d-4ac1-b5d6-ce82dbab289b" />
+
+
+### Consultar Transacciones de una Cuenta
+- **Método:** `GET`  
+- **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}/transactions](http://localhost:8080/api/bank/accounts/{id_cuenta}/transactions)  
+
+---
+
+##  INTERESES
+
+### Aplicar Interés a Cuenta de Ahorros
+- **Método:** `POST`  
+- **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}/apply-interest](http://localhost:8080/api/bank/accounts/{id_cuenta}/apply-interest)
+
 ##  Autor
 
 Proyecto desarrollado por **Juan Pablo Salazar Mora** como práctica de desarrollo y aprendizaje
