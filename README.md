@@ -192,6 +192,138 @@ Aqui el query se usa para pasar parametros y valores, en este caso el parametro 
 - **Método:** `POST`  
 - **URL:** [http://localhost:8080/api/bank/accounts/{id_cuenta}/apply-interest](http://localhost:8080/api/bank/accounts/{id_cuenta}/apply-interest)
 
+
+
+## 📋 Visualización con Swagger UI
+
+Otra forma de poder visualizar los cambios es por medio de Swagger UI, el cual nos permite ver todos los métodos sin tener que crearlos manualmente. Para poder usarlo debes ejecutar el SpringBoot y después irte a esta web:
+
+[localhost:8080/swagger-ui/index.html](localhost:8080/swagger-ui/index.html)
+
+
+Una vez en la web debería aparecer esto:
+
+<img width="1890" height="1021" alt="Captura de pantalla 2025-10-30 135843" src="https://github.com/user-attachments/assets/92e46765-e937-4fa9-8fc2-f3fc9409907d" />
+
+
+Aquí estarán todos los métodos GET y POST.
+
+---
+
+### 👤 Gestión de Clientes
+
+#### Crear cliente
+- **Ruta:** `http://localhost:8080/api/bank/customers`
+- **Método CRUD:** POST
+
+<img width="1776" height="476" alt="Captura de pantalla 2025-10-30 141036" src="https://github.com/user-attachments/assets/d6a8a72d-66b3-46c8-b482-e69dd68ffaf6" />
+
+
+---
+
+#### Lista de todos los clientes
+- **Ruta:** `http://localhost:8080/api/bank/customers`
+- **Método CRUD:** GET
+
+<img width="1776" height="859" alt="Captura de pantalla 2025-10-30 141334" src="https://github.com/user-attachments/assets/3d3e3bd8-e431-411a-bcf1-9bec4b491bf1" />
+
+
+---
+
+#### Buscar cliente por id
+- **Ruta:** `http://localhost:8080/api/bank/customers/{customerId}`
+- **Método CRUD:** GET
+
+<img width="648" height="475" alt="Captura de pantalla 2025-10-30 141526" src="https://github.com/user-attachments/assets/129baa99-6e78-402a-b7c3-71e5708f8f15" />
+
+
+---
+
+### 💰 Gestión de Cuentas
+
+#### Crear cuenta de ahorros o de corriente
+- **Ruta:** `http://localhost:8080/api/bank/customers/{customerId}/accounts`
+- **Método CRUD:** POST
+
+**⚠️ Importante:** En donde dice "type" hay que colocar si es de ahorros (`SAVINGS`) o va a ser de corriente (`CHECKING`)
+
+<img width="650" height="635" alt="Captura de pantalla 2025-10-30 142055" src="https://github.com/user-attachments/assets/5388ef47-b427-40c0-8cf4-a30ec141439b" />
+
+
+---
+
+#### Lista de cuentas de un cliente
+- **Ruta:** `http://localhost:8080/api/bank/customers/{customerId}/accounts`
+- **Método CRUD:** GET
+
+<img width="1760" height="480" alt="Captura de pantalla 2025-10-30 143321" src="https://github.com/user-attachments/assets/74de86fb-f81a-49c6-bbae-e83238b5e65b" />
+
+
+---
+
+#### Para buscar solo una cuenta
+- **Ruta:** `http://localhost:8080/api/bank/accounts/{accountId}`
+- **Método CRUD:** GET
+
+<img width="1772" height="629" alt="Captura de pantalla 2025-10-30 143712" src="https://github.com/user-attachments/assets/db464be8-7e08-446f-84b6-d9952dea487e" />
+
+
+---
+
+### 💸 Operaciones Bancarias
+
+#### Hacer depósitos
+- **Ruta:** `http://localhost:8080/api/bank/accounts/ACC01/deposit?amount=200`
+- **Método CRUD:** POST
+
+En el primer parámetro debes poner el id de la cuenta y en el segundo parámetro debes poner el valor del monto que vas a añadir a la cuenta
+
+
+<img width="1774" height="463" alt="Captura de pantalla 2025-10-30 144147" src="https://github.com/user-attachments/assets/733c19fd-3af6-4233-980e-b9660068c790" />
+
+---
+
+#### Hacer retiros
+- **Ruta:** `http://localhost:8080/api/bank/accounts/ACC01/withdraw?amount=50`
+- **Método CRUD:** POST
+
+Aquí es el mismo proceso que depositar solo que ahora es retirar
+
+<img width="1778" height="464" alt="Captura de pantalla 2025-10-30 144401" src="https://github.com/user-attachments/assets/e1d64e1f-6ea1-4c5b-9cb8-3332feb1d685" />
+
+
+---
+
+#### Transferir dinero a otra cuenta
+- **Ruta:** `http://localhost:8080/api/bank/accounts/ACC01/transfer`
+- **Método CRUD:** POST
+
+Aquí debes poner de parámetro la cuenta donde va a salir el dinero, y en el body pones hacia que cuenta va a parar el dinero junto a cuanto dinero va a ser
+
+<img width="1771" height="463" alt="Captura de pantalla 2025-10-30 144658" src="https://github.com/user-attachments/assets/bb43c722-44bf-456b-a838-e356b831ee9e" />
+
+
+---
+
+### 📊 Consultas y Operaciones
+
+#### Todas las transacciones de una cuenta
+- **Ruta:** `http://localhost:8080/api/bank/accounts/ACC01/transactions`
+- **Método CRUD:** GET
+
+<img width="1760" height="724" alt="Captura de pantalla 2025-10-30 145302" src="https://github.com/user-attachments/assets/69debfdc-fb7e-408b-b368-35716c56772c" />
+
+
+---
+
+#### Aplicar intereses
+- **Ruta:** `http://localhost:8080/api/bank/accounts/ACC01/apply-interest`
+- **Método CRUD:** POST
+
+<img width="1766" height="316" alt="Captura de pantalla 2025-10-30 145453" src="https://github.com/user-attachments/assets/f02edc05-86f1-4057-a82f-f28e65962089" />
+
+
+---
 ##  Autor
 
 Proyecto desarrollado por **Juan Pablo Salazar Mora** como práctica de desarrollo y aprendizaje
